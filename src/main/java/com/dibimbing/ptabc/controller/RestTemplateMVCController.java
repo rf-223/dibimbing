@@ -27,7 +27,7 @@ public class RestTemplateMVCController {
 
     @GetMapping(value = {"/", "/index"})
     public String index(Model model) {
-        model.addAttribute("title", "Title Saya");
+        model.addAttribute("title", "Mini Project");
         return "index";
     }
 
