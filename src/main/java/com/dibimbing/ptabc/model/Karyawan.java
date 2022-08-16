@@ -50,15 +50,16 @@ public class Karyawan implements Serializable {
     @Column(name = "deleted_date")
     private java.util.Date deleted_date;
 
-    @OneToOne(mappedBy = "karyawan")
+
+
+    @OneToOne(mappedBy = "karyawan", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private KaryawanDetail karyawanDetail;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "karyawan", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Rekening> rekeningList;
 
     @JsonIgnore
     @OneToMany(mappedBy = "karyawan",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private List<KaryawanTraining> karyawanTrainingList;
+
+
 
 }

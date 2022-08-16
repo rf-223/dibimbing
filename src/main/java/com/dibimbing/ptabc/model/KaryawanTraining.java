@@ -27,6 +27,10 @@ public class KaryawanTraining implements Serializable {
     @JoinColumn(name = "id_training",referencedColumnName = "id", nullable = false)
     private Training training;
 
+    @JsonFormat(pattern = "yyyy-MM-dd hh:mm")
+    @Column(name = "training_date")
+    private java.util.Date training_date; // java.util.Date
+
 
     @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
     @Column(name = "created_date")

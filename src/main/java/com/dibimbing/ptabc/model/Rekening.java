@@ -21,6 +21,7 @@ public class Rekening implements Serializable {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_rekening")
     private Long id;
 
+
     @Column(name = "nama", nullable = false , length = 80)
     private String nama;
 
@@ -42,8 +43,9 @@ public class Rekening implements Serializable {
     @Column(name = "deleted_date")
     private java.util.Date deleted_date;
 
-    @ManyToOne(targetEntity = Rekening.class, cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_karyawan",referencedColumnName = "id", nullable = false)
+    @JsonIgnore
+    @ManyToOne(targetEntity = Karyawan.class )
+    @JoinColumn(name = "id_karyawan",referencedColumnName = "id")
     private Karyawan karyawan;
 
 }
